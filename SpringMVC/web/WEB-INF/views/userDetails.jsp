@@ -27,7 +27,7 @@
             <td>${firstName}</td>
         </tr>
         <tr>
-            <td>E-mail:</td>
+            <td>LastName:</td>
             <td>${lastName}</td>
         </tr>
         <tr>

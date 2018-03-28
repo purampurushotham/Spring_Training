@@ -16,14 +16,14 @@ public class User {
     }
 
     public String getFirstName() {
-        return firstName;
+        return this.firstName;
     }
 
     public int getAge() {
-        return age;
+        return this.age;
     }
 
     public String getLastName() {
-        return lastName;
+        return this.lastName;
     }
 }

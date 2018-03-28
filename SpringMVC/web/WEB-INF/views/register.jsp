@@ -14,8 +14,10 @@
     <title> </title>
 </head>
 <body>
+<div align="center"><h2>Registration Form</h2>
+</div>
 <div align="center">
-    <form:form action="register" method="post">
+    <form:form action="viewUser" method="post">
         <table>
             <tr>
                 <td>First Name:</td>
@@ -27,7 +29,7 @@
             </tr>
             <tr>
                 <td>Age</td>
-                <td><input type="number" path="age" /></td>
+                <td><input type="number" name="age" path="age" /></td>
             </tr>
             <tr>
                 <td colspan="2" align="center"><input type="submit" value="Register" /></td>
