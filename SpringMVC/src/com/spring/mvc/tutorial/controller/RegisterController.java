@@ -1,8 +1,13 @@
 package com.spring.mvc.tutorial.controller;
+import com.spring.events.publisher.CustomSpringEventPublisher;
 import com.spring.mvc.tutorial.modal.User;
 import com.spring.mvc.tutorial.service.MyAnnotatedBean;
+import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.annotation.Scope;
+import org.springframework.context.support.FileSystemXmlApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,9 +18,14 @@ import java.util.Locale;
 
 @Controller
 @Scope("request")
-public class RegisterController{
+public class RegisterController implements ApplicationContextAware{
     private User user;
+    private ApplicationContext applicationContext;
     private MyAnnotatedBean myAnnotatedBean;
+    @Override
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+        this.applicationContext = applicationContext;
+    }
     @Autowired
     public void setUser(User user){
         System.out.println("Bean based Autowirewd");
@@ -44,9 +54,15 @@ public class RegisterController{
     @RequestMapping(value = "/viewUser" ,method = RequestMethod.POST)
     public String submit(User user,Model model) {
         ModelAndView mav = null;
+        CreateCustomEvent(user);
         model.addAttribute("firstName",user.getFirstName());
         model.addAttribute("lastName",user.getLastName());
         model.addAttribute("age",user.getAge());
         return "userDetails";
+    }
+    public void CreateCustomEvent(User user){
+        applicationContext = new FileSystemXmlApplicationContext("web/WEB-INF/applicationContext.xml");
+        CustomSpringEventPublisher publisher = applicationContext.getBean(CustomSpringEventPublisher.class);
+        publisher.doProcessAndPublishAnEvent("User is Registered",user);
     }
 }
