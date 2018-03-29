@@ -6,9 +6,13 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
     <!--<mvc:view-controller path="/" view-name="welcome"/>-->
     <context:component-scan base-package="com.spring.mvc.tutorial" />
-    <context:annotation-config />
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/views/" />
         <property name="suffix" value=".jsp" />
+    </bean>
+    <bean id="privateCons" class="com.spring.mvc.tutorial.User">
+        <constructor-arg value="Puram"></constructor-arg>
+        <constructor-arg value="Purushotham"></constructor-arg>
+        <constructor-arg value="10"></constructor-arg>
     </bean>
 </beans>
