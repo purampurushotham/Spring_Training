@@ -1,5 +1,4 @@
-package com.spring.mvc.tutorial;
-
+package com.spring.mvc.tutorial.modal;
 import org.springframework.stereotype.Component;
 
 @Component
