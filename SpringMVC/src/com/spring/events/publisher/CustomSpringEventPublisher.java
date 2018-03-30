@@ -10,9 +10,9 @@ public class CustomSpringEventPublisher implements ApplicationEventPublisherAwar
 
     @Autowired
     private ApplicationEventPublisher applicationEventPublisher;
-    public void doProcessAndPublishAnEvent(String message, User user) {
+    public void doProcessAndPublishAnEvent(String message) {
         System.out.println("Publishing custom event. ");
-        applicationEventPublisher.publishEvent(new CustomSpringEvent(this,message,user));
+        applicationEventPublisher.publishEvent(new CustomSpringEvent(this,message));
     }
 
     @Override

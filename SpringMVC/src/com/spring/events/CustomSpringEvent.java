@@ -7,10 +7,11 @@ import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
 public class CustomSpringEvent extends ApplicationEvent {
     private String message;
-    private User user;
-    public CustomSpringEvent(Object source,String message,User user) {
+    public CustomSpringEvent(Object source,String message) {
         super(source);
         this.message = message;
-        this.user = user;
+    }
+    public String getMessage() {
+        return message;
     }
 }

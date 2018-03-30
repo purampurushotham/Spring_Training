@@ -11,6 +11,6 @@ public class MyEventMain {
         ApplicationContext context =  new FileSystemXmlApplicationContext("web/WEB-INF/applicationContext.xml");
         /*new ClassPathXmlApplicationContext("src/WEBapplication-context.xml"})*/
         CustomSpringEventPublisher publisher = context.getBean(CustomSpringEventPublisher.class);
-        publisher.doProcessAndPublishAnEvent();
+        publisher.doProcessAndPublishAnEvent("custom event Raising");
     }
 }

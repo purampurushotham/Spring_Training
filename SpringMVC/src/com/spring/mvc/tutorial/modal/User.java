@@ -1,8 +1,9 @@
 package com.spring.mvc.tutorial.modal;
+import org.springframework.context.ApplicationEvent;
 import org.springframework.stereotype.Component;
 
 @Component
-public class User {
+public class User{
     private String firstName,lastName;
     private int age;
     public User(){

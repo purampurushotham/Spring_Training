@@ -61,8 +61,9 @@ public class RegisterController implements ApplicationContextAware{
         return "userDetails";
     }
     public void CreateCustomEvent(User user){
+        System.out.println("");
         applicationContext = new FileSystemXmlApplicationContext("web/WEB-INF/applicationContext.xml");
         CustomSpringEventPublisher publisher = applicationContext.getBean(CustomSpringEventPublisher.class);
-        publisher.doProcessAndPublishAnEvent("User is Registered",user);
+        publisher.doProcessAndPublishAnEvent("User is Registered");
     }
 }
